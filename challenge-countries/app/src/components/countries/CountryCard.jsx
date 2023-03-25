@@ -20,6 +20,7 @@ function CountryCard({ flags, countryName, region, population, capital }) {
           height={150}
         />
         <CardHeader
+          sx={{ pb: 0 }}
           title={<Typography variant="h6">{countryName}</Typography>}
         />
         <CardContent>

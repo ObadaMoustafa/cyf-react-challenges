@@ -27,6 +27,7 @@ function SelectRegion() {
   function handleChooseRegion(e) {
     setRegion(e.target.value);
     setSearchQuery("");
+    document.getElementById("search-field").value = "";
   }
 
   return (

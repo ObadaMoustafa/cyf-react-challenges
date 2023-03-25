@@ -27,6 +27,7 @@ function SearchBar() {
           type="text"
           fullWidth
           onChange={lodash.debounce(handleSearchQuery, 500)}
+          id="search-field"
         />
       </Box>
     </>

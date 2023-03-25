@@ -26,7 +26,7 @@ function AllCountries() {
   return (
     <Box>
       {isLoading && <Spinner />}
-      {error && <ShowError />}
+      {error && <ShowError error={error} />}
       {data && (
         <Grid container spacing={3}>
           {data.map((country, index) => {
