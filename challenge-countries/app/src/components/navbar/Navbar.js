@@ -1,10 +1,12 @@
-import { Box, Container, Grid, Typography } from "@mui/material";
+import { Box, Container, Grid, IconButton, Typography } from "@mui/material";
 
-function Navbar() {
+function Navbar({ setIsLightTheme }) {
   //write code here
-
+  function handleChangeTheme() {
+    setIsLightTheme((pre) => !pre);
+  }
   return (
-    <Box bgcolor="black" py={3}>
+    <Box bgcolor="background.nav" py={3}>
       <Container>
         <Grid container justifyContent="space-between">
           <Grid item>
@@ -13,9 +15,11 @@ function Navbar() {
             </Typography>
           </Grid>
           <Grid item>
-            <Typography variant="h3" color="white">
-              Dark mode
-            </Typography>
+            <IconButton onClick={handleChangeTheme}>
+              <Typography variant="h3" color="white">
+                change theme mode
+              </Typography>
+            </IconButton>
           </Grid>
         </Grid>
       </Container>
