@@ -16,6 +16,7 @@ function SelectRegion() {
 
   useEffect(() => {
     performFetch();
+    // eslint-disable-next-line
   }, []);
 
   useEffect(() => {

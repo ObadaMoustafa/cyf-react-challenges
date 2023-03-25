@@ -21,6 +21,7 @@ function AllCountries() {
 
   useEffect(() => {
     performFetch();
+    // eslint-disable-next-line
   }, [countriesEndPoint]);
 
   return (
