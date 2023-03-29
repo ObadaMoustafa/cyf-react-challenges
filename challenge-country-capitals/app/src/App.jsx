@@ -1,13 +1,15 @@
 import "./App.css";
+import Question from "./components/Question";
+import QuestionContextProvider from "./context/QuestionsContext";
 
 function App() {
   return (
     <div className="App">
       <header className="App-header">
         <h2>country guessing game challenge </h2>
-        <code>{`const number = { name: "obada", age: 32}`}</code>
-        <code>const number =5;</code>
-        <code>const number =5;</code>
+        <QuestionContextProvider>
+          <Question />
+        </QuestionContextProvider>
       </header>
     </div>
   );
