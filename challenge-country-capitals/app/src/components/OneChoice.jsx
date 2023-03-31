@@ -1,10 +1,13 @@
 import { useContext } from "react";
 import { QuestionContext } from "../context/QuestionsContext";
+import { TimerContext } from "../context/TimerContext";
 import { optionsClassName } from "../data/constants";
+import { disableOptions } from "../handlers/helperFunctions";
 
 function OneChoice({ capitalName, isCorrect }) {
   //write code here
-  const { rightAnswer } = useContext(QuestionContext);
+  const { rightAnswer, raiseScore } = useContext(QuestionContext);
+  const { stopTimer } = useContext(TimerContext);
   const style = {
     cursor: "pointer",
     display: "block",
@@ -16,16 +19,18 @@ function OneChoice({ capitalName, isCorrect }) {
   };
 
   const handleChoice = (e) => {
+    stopTimer();
     const color = isCorrect ? "green" : "red";
-    const options = document.querySelectorAll(`.${optionsClassName}`);
+    const options = disableOptions();
     // color the correct answer
     options.forEach((el) => {
-      el.disabled = true;
-      el.dataset.country === rightAnswer
-        ? (el.style.backgroundColor = "green")
-        : (el.style.backgroundColor = "black");
+      if (el.dataset.country === rightAnswer)
+        el.style.backgroundColor = "green";
     });
     e.target.style.backgroundColor = color;
+
+    // set score
+    if (isCorrect) raiseScore();
   };
 
   return (

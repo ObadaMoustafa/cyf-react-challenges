@@ -19,7 +19,7 @@ export function getRandomChoices(rightAnswer, data) {
   const choices = [rightAnswer];
   for (let n = 1; n <= 5; n++) {
     const index = generateRandomIndex(data);
-    if (data[index].name === rightAnswer) {
+    if (data[index].capital === rightAnswer) {
       n--;
       continue;
     }
@@ -32,6 +32,12 @@ export const resetOptions = () => {
   const options = document.querySelectorAll(`.${optionsClassName}`);
   options.forEach((option) => {
     option.disabled = false;
-    option.style.backgroundColor = "white";
+    option.style.backgroundColor = "lightGray";
   });
+};
+
+export const disableOptions = () => {
+  const options = document.querySelectorAll(`.${optionsClassName}`);
+  options.forEach((el) => (el.disabled = true));
+  return options;
 };
