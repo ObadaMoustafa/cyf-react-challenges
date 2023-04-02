@@ -6,7 +6,8 @@ import { disableOptions } from "../handlers/helperFunctions";
 
 function OneChoice({ capitalName, isCorrect }) {
   //write code here
-  const { rightAnswer, raiseScore } = useContext(QuestionContext);
+  const { questionState, raiseScore } = useContext(QuestionContext);
+  const rightAnswer = questionState.question.rightAnswer;
   const { stopTimer } = useContext(TimerContext);
   const style = {
     cursor: "pointer",

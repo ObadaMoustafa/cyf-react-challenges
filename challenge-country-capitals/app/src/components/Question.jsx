@@ -5,7 +5,8 @@ import { QuestionContext } from "../context/QuestionsContext";
 
 function Question() {
   //write code here
-  const { countryName, getNextQuestion } = useContext(QuestionContext);
+  const { questionState, getNextQuestion } = useContext(QuestionContext);
+  const countryName = questionState.question.countryName;
 
   return (
     <>

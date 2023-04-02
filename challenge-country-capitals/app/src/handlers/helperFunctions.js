@@ -1,6 +1,10 @@
 import { optionsClassName } from "../data/constants";
 
-export function generateRandomIndex(data) {
+export function getRandomCountry(data) {
+  const numberOfCountries = data.length;
+  return data[Math.floor(Math.random() * numberOfCountries)];
+}
+export function getRandomCountryIndex(data) {
   const numberOfCountries = data.length;
   return Math.floor(Math.random() * numberOfCountries);
 }
@@ -18,7 +22,7 @@ export const shuffleArray = (array) => {
 export function getRandomChoices(rightAnswer, data) {
   const choices = [rightAnswer];
   for (let n = 1; n <= 5; n++) {
-    const index = generateRandomIndex(data);
+    const index = getRandomCountryIndex(data);
     if (data[index].capital === rightAnswer) {
       n--;
       continue;
@@ -28,7 +32,15 @@ export function getRandomChoices(rightAnswer, data) {
   return shuffleArray(choices);
 }
 
-export const resetOptions = () => {
+export function createAQuestion(data) {
+  const { name: countryName, capital: rightAnswer } = getRandomCountry(data);
+  console.log({ countryName, rightAnswer });
+  const options = getRandomChoices(rightAnswer, data);
+
+  return { countryName, rightAnswer, options };
+}
+
+export const enableOptions = () => {
   const options = document.querySelectorAll(`.${optionsClassName}`);
   options.forEach((option) => {
     option.disabled = false;

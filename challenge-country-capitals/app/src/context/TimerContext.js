@@ -17,7 +17,7 @@ const TimerContextProvider = ({ children }) => {
   }, [timer]);
 
   function resetTimer() {
-    clearTimeout(timerId);
+    clearTimeout(timerId.current);
     setTimer((prev) => (prev === 5 ? 6 : 5));
     setShouldCount(true);
   }

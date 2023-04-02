@@ -1,4 +1,4 @@
-import { useScore } from "../useScore";
+import { useScore } from "../hooks/useScore";
 
 function Score() {
   //write code here

@@ -4,7 +4,8 @@ import OneChoice from "./OneChoice";
 
 function Choices() {
   //write code here
-  const { options, rightAnswer } = useContext(QuestionContext);
+  const { questionState } = useContext(QuestionContext);
+  const { options, rightAnswer } = questionState.question;
 
   return (
     <>
